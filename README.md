@@ -26,6 +26,7 @@ The code imports necessary libraries such as pandas, datetime, tqdm, and warning
 
 
 **filter_fedspeak**: Filters Fed speak headlines from a DataFrame based on the names of officials and types of releases.
+
 **calculate_pnl**: Calculates the profit and loss for each headline based on price data.
 
 **rank_headlines**: Ranks the headlines based on various factors, including price, volume, and sentiment scores.
