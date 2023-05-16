@@ -4,9 +4,17 @@ The **FOMCAnalysis class** provides a comprehensive analysis of FOMC (Federal Op
 
 **Class Initialization:**
 
-The class's __init__ method initializes attributes such as price_data, headline_data, results, and missing_data_count.
-It also checks if the start_date parameter is provided and raises an exception if it's missing.
-The class defines two lists: offi containing names of officials and release containing types of releases.
+*restart_data* (default value: False): This flag indicates whether to restart the data or not. Its use would depend on the other methods within this class.
+
+*start_date*: This specifies the start date for the analysis. There is no default value, so it must be specified when creating an instance of the class.
+
+*price_data_files*: This parameter is expected to hold the names or paths of files that contain price data. Again, there is no default value, so it must be provided.
+
+*price_base_path*: This is the base path where the price data files are located. This also must be specified by the user.
+
+*headline_data_file*: This parameter should hold the file name or path for the headline data file. This must be provided by the user.
+
+*master_file_path*: This parameter is expected to hold the file name or path for the master file. It must be specified by the user.
 
 **Data Loading Methods:**
 
