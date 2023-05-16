@@ -99,12 +99,25 @@ class FOMCAnalysis:
         This function analyses the sentiment of headlines.
         :param headlines: A list of headlines.
         :return: A list of sentiment scores.
+        Please note that the concept of sentiment analysis and the methodology used in this function are inspired by the work of Tadle, R. C. (2022)
+        in their publication titled "FOMC minutes sentiments and their impact on financial markets" published in the Journal of Economics and Business.
         """
-        positive_terms = ['abatinga']
+        positive_terms = ['abatinga', 'accelerated', 'add' ,'advance' ,'advanced', 'augmented', 'balanced' , 'better', 'bolsters', 'boom', 'booming', 'boost', 'boosted' ,'eased', 'elevated',
+                      'elevating', 'expand expanding', 'expansionary', 'extend', 'extended', 'fast', 'faster', 'firmer', 'gains', 'growing', 'heightened', 'high', 'higher', 'improved', 'improvement',
+                      'improving', 'increase', 'increased','increases', 'increasing', 'more','raise','rapid','rebounded','recovering','rise','risen','rising','robust' 'rose',
+                      'significant','solid','sooner','spike', 'spikes','spiking','stable','strength','strengthen','strengthened','strengthens','strong','stronger','supportive',
+                      'up','upside','upswing', 'uptick']
     
-        negative_terms = ['adverse','term']
-        hawkish_keys = ['business', 'wages'] 
-        dovish_keys = ['unemployment'] 
+        negative_terms = ['adverse','back','below','constrained','contract','contracting','contraction','cooling','correction','dampen','damping','decelerated','decline','declined','declines',
+                'declining','decrease','decreases','decreasing','deepening', 'depressed','deteriorated','deterioration','diminished', 'disappointing', 'dislocation','disruptions','down', 
+                'downbeat', 'downside', 'drop', 'dropping', 'ebbed', 'erosion', 'fade', 'faded', 'fading', 'fall', 'fallen', 'falling', 'fell', 'insufficient', 'less', 'limit', 'low', 'lower',
+                    'moderated', 'moderating', 'moderation', 'reduce', 'reduced', 'reduction', 'reluctant', 'removed', 'restrain', 'restrained', 'restraining', 'restraint', 'resumption'
+                    'reversed', 'slack', 'slow', 'slowed','slower','slowing' ,'slowly','sluggish', 'sluggishness','slumped','soft','softened','softening', 'stimulate', 'strained', 'strains',
+                    'stress','subdued', 'tragic', 'turmoil', 'underutilization', 'volatile', 'vulnerable', 'wary', 'weak', 'weakened', 'weaker', 'weakness', 'a', 'The', 'term']
+        hawkish_keys = ['business', 'businesses', 'demand', 'economic', 'economy', 'employment', 'energy', 'equities', 'equity', 'expansion', 'financial','growth','housing','income','indicators',
+                    'inflation','inflationary','investment','investments','labor','manufacturing','outlook','output', 'price', 'prices', 'production', 'recovery', 'resource', 'securities',
+                    'slack', 'spending', 'target', 'toll', 'wage', 'wages'] 
+        dovish_keys = ['accommodation','devastation','downturn','recession','unemployment'] 
 
         def preprocess_headlines(headlines):
             import pandas as pd
