@@ -1,15 +1,40 @@
 class FOMCAnalysis:
-    def __init__(self,restart_data=False,start_date=None):
+    def __init__(self, restart_data=False,
+                 start_date=None,
+                 price_data_files=None,
+                 price_base_path=None,
+                 headline_data_file=None,
+                 master_file_path=None):
         self.price_data = None
         self.headline_data = None
         self.results = None
         self.missing_data_count = 0
-        self.restart_data=restart_data
-        if start_date is None:
-            raise Exception('You must specify start_date of the analysis!')
-        else:
-            self.start_date= start_date
+        self.restart_data = restart_data
 
+        if start_date is None:
+            raise Exception('You must specify the start_date of the analysis!')
+        else:
+            self.start_date = start_date
+
+        if price_data_files is None:
+            raise Exception('You must specify the price_data_files!')
+        else:
+            self.price_data_files = price_data_files
+
+        if price_base_path is None:
+            raise Exception('You must specify the price_base_file!')
+        else:
+            self.price_base_path = price_base_path
+
+        if headline_data_file is None:
+            raise Exception('You must specify the headline_data_file!')
+        else:
+            self.headline_data_file = headline_data_file
+
+        if master_file_path is None:
+            raise Exception('You must specify the master_file_path!')
+        else:
+            self.master_file_path = master_file_path
         self.offi = ['Collins','Evans','Daly','Harker','Bostic','Williams','Cook','Brainard','Barr','Jefferson','Bowman','Powell','Waller','Barkin','Logan','Kaskari','George','Mester','Bullard']
         self.release = ['Beige','Minutes']
 
@@ -321,26 +346,11 @@ class FOMCAnalysis:
         # Record the start time of the analysis
         start = time.time()
 
-        # List of price data files to be imported
-        price_data_files = [
-            '\SFRU3_recent.csv',
-            '\SFR3M_recent.csv',
-            '\SFR3M_old.csv',
-            '\SFR3H_PT3.csv',
-            '\SFR3H_PT4.csv',
-            '\SFR3H.csv',
-            '\SFR3H_PT2.csv']
-        
-        base_path = r'C:\Users\hugod\OneDrive\Desktop\RATES DATA PYTHON'
-
         # Load the price data
-        price_data = self.load_price_data(price_data_files, base_path)
-
-        # Path to the recent headlines data file
-        headline_data_file = r'C:\Users\hugod\OneDrive\Documents\RRATES\RATES\TAPE READING\Trading FOMC meetings\recent_headlines.csv'
+        price_data = self.load_price_data(self.price_data_files, self.price_base_path)
 
         # Load the recent headlines data
-        headline_data = self.load_headline_data(headline_data_file)
+        headline_data = self.load_headline_data(self.headline_data_file)
 
         # Analyze the headlines
         results, missing_data_count = self.analyze_headlines(price_data, headline_data)
@@ -349,20 +359,18 @@ class FOMCAnalysis:
         # Save the results to a new CSV file
         new_trades = self.save_results_to_csv(results, 'Headlines_Fedspeak_new.csv')
 
-        master_file_path = r'C:\Users\hugod\OneDrive\Documents\RRATES\RATES\TAPE READING\Trading FOMC meetings\Headlines_Fedspeak_all.csv'
-
         # Check if the user wants to restart the data
         if self.restart_data==True:
             # Ask the user for confirmation before restarting the data
             user_input = input("Are you sure you want to restart? This will overwrite the existing master file! Enter 'yes' to confirm: ")
             if user_input.lower() == 'yes':
-                new_trades = self.save_results_to_csv(results,master_file_path)
-                all_headlines = self.update_master_file(new_trades,master_file_path)
+                new_trades = self.save_results_to_csv(results,self.master_file_path)
+                all_headlines = self.update_master_file(new_trades,self.master_file_path)
             else:
                 # If the user didn't confirm, raise an exception
                 raise Exception('Operation cancelled by user')
         else:
-            all_headlines = self.update_master_file(new_trades,master_file_path)
+            all_headlines = self.update_master_file(new_trades,self.master_file_path)
         end = time.time()
         print('Total time: ', (end - start) / 60)
         return all_headlines,price_data
