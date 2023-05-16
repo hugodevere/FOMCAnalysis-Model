@@ -1,5 +1,5 @@
 **FOMCAnalysis Model Overview**
-
+<iframe width="560" height="315" src="https://www.youtube.com/embed/HZPNm65Xg7E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 The **FOMCAnalysis class** provides a comprehensive analysis of FOMC (Federal Open Market Committee) data, with various functionalities and methods. Here's a breakdown of the different components of the code:
 
