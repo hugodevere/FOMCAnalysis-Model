@@ -45,11 +45,12 @@ It loads price data, headline data, analyzes the headlines, saves the results, a
 *Recent_headlines*: A list of the most recent headlines, specified by the start_date parameter, ranked by importance.
 
 **Understanding FOMCAnalysis Measures:**
-*Market Reaction:* This measure assesses the response to each Fedspeak-related headline. It considers the total volume traded from the headline release time (t) to two minutes after (t+2) and calculates the price change from three minutes before the headline (t-3) to two minutes after (t+2). If multiple headlines are released simultaneously, only the first one is considered.
 
-*Market Significance:* Importance is determined by the rolling average of the absolute market reaction to corresponding Fedspeak from a given Federal Reserve official.
+**Market Reaction:** This measure assesses the response to each Fedspeak-related headline. It considers the total volume traded from the headline release time (t) to two minutes after (t+2) and calculates the price change from three minutes before the headline (t-3) to two minutes after (t+2). If multiple headlines are released simultaneously, only the first one is considered.
 
-*Sentiment Index:* The sentiment index utilizes the VADER (Valence Aware Dictionary and sEntiment Reasoner) score, a sentiment analysis tool that quantifies the positivity, neutrality, or negativity of text. VADER employs a sentiment score dictionary and lexical heuristics, accounting for factors such as intensifiers, punctuation, and capitalization. It excels at analyzing short texts like social media content.
+**Market Significance:** Importance is determined by the rolling average of the absolute market reaction to corresponding Fedspeak from a given Federal Reserve official.
 
-*Hawk-Dove Score:* Based on Tadle's methodology, this score indicates the sentiment behind the Federal Open Market Committee's (FOMC) monetary policy as expressed in their speeches. A higher (Hawkish) score signifies a policy inclination towards higher interest rates to curb inflation, while a lower (Dovish) score suggests a preference for lower interest rates to boost economic growth. This score aids in predicting market trends based on expected economic policy. See: Tadle, R. C. (2022). FOMC minutes sentiments and their impact on financial markets. Journal of Economics and Business.
+**Sentiment Index:** The sentiment index utilizes the VADER (Valence Aware Dictionary and sEntiment Reasoner) score, a sentiment analysis tool that quantifies the positivity, neutrality, or negativity of text. VADER employs a sentiment score dictionary and lexical heuristics, accounting for factors such as intensifiers, punctuation, and capitalization. It excels at analyzing short texts like social media content.
+
+**Hawk-Dove Score:** Based on Tadle's methodology, this score indicates the sentiment behind the Federal Open Market Committee's (FOMC) monetary policy as expressed in their speeches. A higher (Hawkish) score signifies a policy inclination towards higher interest rates to curb inflation, while a lower (Dovish) score suggests a preference for lower interest rates to boost economic growth. This score aids in predicting market trends based on expected economic policy. See: Tadle, R. C. (2022). FOMC minutes sentiments and their impact on financial markets. Journal of Economics and Business.
 
