@@ -40,8 +40,11 @@ It loads price data, headline data, analyzes the headlines, saves the results, a
 *extract_analysis*: This method extracts the analysis results from the main method. It filters the Fedspeak data, ranks the headlines, calculates profit and loss, and returns a dictionary containing the filtered DataFrame, all headlines, and recent headlines.
 
 **The model output is a dictionary with the following key-value pairs:**
+
 *filtered_df*: A dictionary containing individual dataframes of headline analysis for each Fed official and press release.
+
 *All_headlines*: A list of all headlines ranked in order of significance.
+
 *Recent_headlines*: A list of the most recent headlines, specified by the start_date parameter, ranked by importance.
 
 **Understanding FOMCAnalysis Measures:**
